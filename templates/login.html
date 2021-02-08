@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+<!--  -->
+{% block content -%}
+
+<div class="container" style="width: 60%;">
+    <form class="form" method="POST" style="width: 70%;">
+        {{ form.hidden_tag() }}
+        <br> {{ wtf.form_field(form.username) }}
+        <br> {{ wtf.form_field(form.password) }}
+        <br> {{form.submit(class="btn btn-success")}}
+        <a href="/register" type="button" class="btn btn-info" style="margin-left: 10px;">注册</a>
+    </form>
+</div>
+{%- endblock content %}

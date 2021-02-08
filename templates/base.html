@@ -1,0 +1,34 @@
+{% extends "bootstrap/base.html" %}
+<!--  -->
+{% import "bootstrap/wtf.html" as wtf %}
+<!--  -->
+{% block title %}My Web{% endblock %}
+<!--  -->
+{% block navbar %}
+<!--  -->
+{% for message in get_flashed_messages() %} {%if '成功' in message%}
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button> {{message}}
+</div>
+{% else %}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button> {{message}}
+</div>
+{% endif %} {% endfor %}
+<!--  -->
+{%- endblock navbar %}
+
+<!--  -->
+{% block scripts %}
+<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+<script>
+    window.setTimeout(function() {
+        $('[data-dismiss="alert"]').alert('close');
+    }, 2000);
+</script>
+{%- endblock scripts %}

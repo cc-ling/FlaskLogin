@@ -1,0 +1,13 @@
+{%extends "base.html" %}
+<!--  -->
+{% block title %}后台登录{% endblock title %}
+<!--  -->
+{% block content -%}
+
+<div class="container" style="width: 60%;">
+    {{ wtf.quick_form(form) }}
+    <img class="verify_code" src="/captcha" onclick="this.src='/captcha?'+ Math.random().toString(36).slice(-6) ">
+</div>
+
+
+{%- endblock content %}
